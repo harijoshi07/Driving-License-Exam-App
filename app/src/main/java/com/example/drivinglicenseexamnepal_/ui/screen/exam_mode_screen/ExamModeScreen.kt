@@ -34,7 +34,7 @@ import com.example.drivinglicenseexamnepal_.ui.theme.LightBackgroundColor
 @Composable
 fun ExamModeScreen(
     questions: List<Question> = getBikeQuestionsA(),
-    navigateToResult: () -> Unit
+    navigateToResult: (List<Question>, List<Int?>) -> Unit
 ) {
     val randomQuestions = remember { questions.take(5) }
     var currentQuestionIndex by remember { mutableIntStateOf(0) }
@@ -73,7 +73,9 @@ fun ExamModeScreen(
 
             if (currentQuestionIndex == randomQuestions.size - 1) {
                 Button(
-                    onClick = navigateToResult,
+                    onClick = {
+                        navigateToResult(randomQuestions, selectedAnswers.toList())
+                    },
                     colors = ButtonDefaults.buttonColors(containerColor = ButtonColor),
                     shape = RoundedCornerShape(16.dp),
                     modifier = Modifier

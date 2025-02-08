@@ -32,7 +32,7 @@ import com.example.drivinglicenseexamnepal_.ui.theme.LightBackgroundColor
 
 @Composable
 fun CategoryScreen(
-    navigateToStudy:()->Unit
+    navigateToStudy:(String)->Unit
 
 ) {
 
@@ -52,7 +52,7 @@ fun CategoryScreen(
             columns = GridCells.Fixed(2)
         ) {
             items(itemCategory) { category ->
-                CategoryCardItem(items = category, navigateToStudy = navigateToStudy)
+                CategoryCardItem(items = category, navigateToStudy = {navigateToStudy(category.title)})
             }
         }
     }
@@ -71,7 +71,7 @@ fun CategoryCardItem(items: Category, navigateToStudy: () -> Unit) {
             .size(164.dp),
         shape = RoundedCornerShape(12),
         border = BorderStroke(width = 1.dp, color = ButtonColor),
-        onClick = navigateToStudy
+        onClick = { navigateToStudy() }
     ) {
 
         Card(
