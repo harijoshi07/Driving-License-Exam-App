@@ -5,11 +5,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.drivinglicenseexamnepal_"
+    namespace = "com.hari.drivinglicenseexamnepal_"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.example.drivinglicenseexamnepal_"
+        applicationId = "com.hari.drivinglicenseexamnepal_"
         minSdk = 24
         targetSdk = 34
         versionCode = 1
