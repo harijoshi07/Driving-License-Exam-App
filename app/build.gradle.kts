@@ -60,4 +60,6 @@ dependencies {
     implementation("androidx.compose.material:material-icons-extended: 1.7.3")
     implementation ("androidx.navigation:navigation-compose:2.8.4")
 
+    implementation("androidx.core:core-splashscreen:1.0.0")
+
 }

@@ -2,4 +2,10 @@
 <resources>
 
     <style name="Theme.DrivingLicenseExamNepal_" parent="android:Theme.Material.Light.NoActionBar" />
+
+    <style name="Theme.MySplashScreen" parent="Theme.SplashScreen.IconBackground">
+        <item name="windowSplashScreenBackground">#FFEAF3FF</item>
+        <item name="postSplashScreenTheme">@style/Theme.DrivingLicenseExamNepal_</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/icon</item>
+    </style>
 </resources>
