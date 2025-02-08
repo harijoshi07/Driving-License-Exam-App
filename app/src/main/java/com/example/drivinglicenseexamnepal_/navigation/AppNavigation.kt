@@ -44,11 +44,13 @@ fun AppNavigation() {
         ) {
             composable(Screen.Home.route) {
                 HomeScreen(
-                    navigateToCategory = {
-                        navController.navigate(route = Screen.Category.route)
+                    navigateToCategory = { vehicleType ->
+                        navController.navigate(route = "category/$vehicleType")
+                        //navController.navigate(route = Screen.Category.route)
                     },
-                    navigateToQuiz = {
-                        navController.navigate(route = Screen.Exam.route)
+                    navigateToQuiz = { vehicleType ->
+                        navController.navigate(route = "category/$vehicleType")
+                       //navController.navigate(route = Screen.Exam.route)
                     },
                     navigateToUltimateGuide = {
                         navController.navigate(route = Screen.UltimateGuide.route)

@@ -5,3 +5,8 @@ enum class Mode {
     STUDY_MODE,
     RESULT_MODE
 }
+
+object VehicleType {
+    const val BIKE = "bike"
+    const val CAR = "car"
+}

@@ -35,6 +35,7 @@ import androidx.compose.ui.unit.sp
 import androidx.compose.runtime.*
 import com.example.drivinglicenseexamnepal_.R
 import com.example.drivinglicenseexamnepal_.data.constants.Mode
+import com.example.drivinglicenseexamnepal_.data.constants.VehicleType
 import com.example.drivinglicenseexamnepal_.ui.theme.ButtonColor
 import com.example.drivinglicenseexamnepal_.ui.theme.ButtonColorUnselected
 import com.example.drivinglicenseexamnepal_.ui.theme.CardColor
@@ -43,8 +44,8 @@ import com.example.drivinglicenseexamnepal_.ui.theme.LightBackgroundColor
 
 @Composable
 fun HomeScreen(
-    navigateToCategory: () -> Unit,
-    navigateToQuiz: () -> Unit,
+    navigateToCategory: (String) -> Unit,
+    navigateToQuiz: (String) -> Unit,
     navigateToUltimateGuide: () -> Unit,
 ) {
 
@@ -98,7 +99,8 @@ fun HomeScreen(
                 subtitle = "Category A - K",
                 icon = R.drawable.bike,
                 onClick = {
-                    if (selectedMode == "Study Mode") navigateToCategory() else navigateToQuiz()
+                    if (selectedMode == "Study Mode") navigateToCategory(VehicleType.BIKE)
+                    else navigateToQuiz(VehicleType.BIKE)
                 }
             )
             HomeScreenCard(
@@ -106,7 +108,8 @@ fun HomeScreen(
                 subtitle = "Category B",
                 icon = R.drawable.car,
                 onClick = {
-                    if (selectedMode == "Study Mode") navigateToCategory() else navigateToQuiz()
+                    if (selectedMode == "Study Mode") navigateToCategory(VehicleType.CAR)
+                    else navigateToQuiz(VehicleType.CAR)
                 }
             )
 
