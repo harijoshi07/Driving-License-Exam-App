@@ -1,6 +1,11 @@
 package com.example.drivinglicenseexamnepal_.ui.screen.home_screen
 
 import androidx.annotation.DrawableRes
+import androidx.compose.animation.AnimatedContent
+import androidx.compose.animation.ExperimentalAnimationApi
+import androidx.compose.animation.slideInHorizontally
+import androidx.compose.animation.slideOutHorizontally
+import androidx.compose.animation.with
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -42,6 +47,7 @@ import com.example.drivinglicenseexamnepal_.ui.theme.CardColor
 import com.example.drivinglicenseexamnepal_.ui.theme.LightBackgroundColor
 
 
+@OptIn(ExperimentalAnimationApi::class)
 @Composable
 fun HomeScreen(
     navigateToCategory: (String) -> Unit,
@@ -89,32 +95,44 @@ fun HomeScreen(
             }
         }
 
-        Column(
-            verticalArrangement = Arrangement.spacedBy(16.dp),
-            modifier = Modifier.fillMaxWidth()
-        ) {
-            // Vehicle cards
-            HomeScreenCard(
-                title = "Bike - Scooter",
-                subtitle = "Category A - K",
-                icon = R.drawable.bike,
-                onClick = {
-                    if (selectedMode == "Study Mode") navigateToCategory(VehicleType.BIKE)
-                    else navigateToQuiz(VehicleType.BIKE)
+        // Animated content with slide animation
+        AnimatedContent(
+            targetState = selectedMode,
+            transitionSpec = {
+                if (targetState == "Study Mode") {
+                    slideInHorizontally { -it } with slideOutHorizontally { it }
+                } else {
+                    slideInHorizontally { it } with slideOutHorizontally { -it }
                 }
-            )
-            HomeScreenCard(
-                title = "Car",
-                subtitle = "Category B",
-                icon = R.drawable.car,
-                onClick = {
-                    if (selectedMode == "Study Mode") navigateToCategory(VehicleType.CAR)
-                    else navigateToQuiz(VehicleType.CAR)
-                }
-            )
+            }
+        ) { mode ->
+              Column(
+                verticalArrangement = Arrangement.spacedBy(16.dp),
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                // Vehicle cards
+                HomeScreenCard(
+                    title = "Bike - Scooter",
+                    subtitle = "Category A - K",
+                    icon = R.drawable.bike,
+                    onClick = {
+                        if (mode == "Study Mode") navigateToCategory(VehicleType.BIKE)
+                        else navigateToQuiz(VehicleType.BIKE)
+                    }
+                )
+                HomeScreenCard(
+                    title = "Car",
+                    subtitle = "Category B",
+                    icon = R.drawable.car,
+                    onClick = {
+                        if (mode == "Study Mode") navigateToCategory(VehicleType.CAR)
+                        else navigateToQuiz(VehicleType.CAR)
+                    }
+                )
 
-            UltimateGuideCard(navigateToUltimateGuide = navigateToUltimateGuide)
-        }
+                UltimateGuideCard(navigateToUltimateGuide = navigateToUltimateGuide)
+            }
+            }
     }
 }
 
