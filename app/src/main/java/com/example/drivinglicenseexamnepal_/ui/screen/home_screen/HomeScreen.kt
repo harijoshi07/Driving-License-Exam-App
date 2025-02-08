@@ -1,4 +1,4 @@
-package com.example.drivinglicenseexamnepal_.ui.screen
+package com.example.drivinglicenseexamnepal_.ui.screen.home_screen
 
 import androidx.annotation.DrawableRes
 import androidx.compose.foundation.BorderStroke
