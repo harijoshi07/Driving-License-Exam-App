@@ -34,6 +34,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.runtime.*
 import com.example.drivinglicenseexamnepal_.R
+import com.example.drivinglicenseexamnepal_.data.constants.Mode
 import com.example.drivinglicenseexamnepal_.ui.theme.ButtonColor
 import com.example.drivinglicenseexamnepal_.ui.theme.ButtonColorUnselected
 import com.example.drivinglicenseexamnepal_.ui.theme.CardColor
@@ -41,7 +42,11 @@ import com.example.drivinglicenseexamnepal_.ui.theme.LightBackgroundColor
 
 
 @Composable
-fun HomeScreen() {
+fun HomeScreen(
+    navigateToCategory: () -> Unit,
+    navigateToQuiz: () -> Unit,
+    navigateToUltimateGuide: () -> Unit,
+) {
 
     var selectedMode by remember { mutableStateOf("Study Mode") }
     val state = rememberScrollState()
@@ -92,16 +97,20 @@ fun HomeScreen() {
                 title = "Bike - Scooter",
                 subtitle = "Category A - K",
                 icon = R.drawable.bike,
-                onClick = {}
+                onClick = {
+                    if (selectedMode == "Study Mode") navigateToCategory() else navigateToQuiz()
+                }
             )
             HomeScreenCard(
                 title = "Car",
                 subtitle = "Category B",
                 icon = R.drawable.car,
-                onClick = {}
+                onClick = {
+                    if (selectedMode == "Study Mode") navigateToCategory() else navigateToQuiz()
+                }
             )
 
-            UltimateGuideCard()
+            UltimateGuideCard(navigateToUltimateGuide = navigateToUltimateGuide)
         }
     }
 }
@@ -181,13 +190,13 @@ fun HomeScreenCard(
 
 
 @Composable
-fun UltimateGuideCard() {
+fun UltimateGuideCard(navigateToUltimateGuide: () -> Unit) {
 
     Card(
         colors = CardDefaults.cardColors(containerColor = CardColor),
         shape = RoundedCornerShape(12.dp),
         border = BorderStroke(width = 0.25.dp, color = ButtonColor),
-        onClick = {}
+        onClick = navigateToUltimateGuide
     ) {
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,
@@ -209,7 +218,7 @@ fun UltimateGuideCard() {
                 modifier = Modifier.padding(bottom = 16.dp)
             )
             Button(
-                onClick = {},
+                onClick = navigateToUltimateGuide,
                 colors = ButtonDefaults.buttonColors(containerColor = ButtonColor)
             ) {
                 Text(
@@ -225,5 +234,5 @@ fun UltimateGuideCard() {
 @Preview(showBackground = true, heightDp = 800)
 @Composable
 private fun PreviewHomeScreen() {
-    HomeScreen()
+    HomeScreen({}, {}, {})
 }

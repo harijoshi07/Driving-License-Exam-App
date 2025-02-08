@@ -31,7 +31,10 @@ import com.example.drivinglicenseexamnepal_.ui.theme.CategoryCardColor
 import com.example.drivinglicenseexamnepal_.ui.theme.LightBackgroundColor
 
 @Composable
-fun CategoryScreen() {
+fun CategoryScreen(
+    navigateToStudy:()->Unit
+
+) {
 
     Surface(
         modifier = Modifier
@@ -49,14 +52,14 @@ fun CategoryScreen() {
             columns = GridCells.Fixed(2)
         ) {
             items(itemCategory) { category ->
-                CategoryCardItem(items = category)
+                CategoryCardItem(items = category, navigateToStudy = navigateToStudy)
             }
         }
     }
 }
 
 @Composable
-fun CategoryCardItem(items: Category) {
+fun CategoryCardItem(items: Category, navigateToStudy: () -> Unit) {
 
     Card(
         colors = CardDefaults.cardColors(
@@ -67,7 +70,8 @@ fun CategoryCardItem(items: Category) {
             .padding(8.dp)
             .size(164.dp),
         shape = RoundedCornerShape(12),
-        border = BorderStroke(width = 1.dp, color = ButtonColor)
+        border = BorderStroke(width = 1.dp, color = ButtonColor),
+        onClick = navigateToStudy
     ) {
 
         Card(
@@ -113,5 +117,5 @@ fun CategoryCardItem(items: Category) {
 @Preview
 @Composable
 private fun CategoryScreenPreview() {
-    CategoryScreen()
+    CategoryScreen({})
 }

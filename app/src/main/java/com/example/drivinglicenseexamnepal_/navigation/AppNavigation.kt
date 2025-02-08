@@ -37,11 +37,25 @@ fun AppNavigation() {
             modifier = Modifier.padding(innerPadding)
         ) {
             composable(Screen.Home.route) {
-                HomeScreen()
+                HomeScreen(
+                    navigateToCategory = {
+                        navController.navigate(route = Screen.Category.route)
+                    },
+                    navigateToQuiz = {
+                        navController.navigate(route = Screen.Exam.route)
+                    },
+                    navigateToUltimateGuide = {
+                        navController.navigate(route = Screen.UltimateGuide.route)
+                    }
+                )
             }
 
             composable(Screen.Category.route) {
-                CategoryScreen()
+                CategoryScreen(
+                    navigateToStudy = {
+                        navController.navigate(Screen.Study.route)
+                    }
+                )
             }
 
             composable(Screen.Study.route) {
@@ -50,11 +64,27 @@ fun AppNavigation() {
 
             composable(Screen.Exam.route) {
 
-                ExamModeScreen()
+                ExamModeScreen(
+                    navigateToResult = {
+                        navController.navigate(route = Screen.Result.route)
+                    },
+                )
             }
 
             composable(Screen.Result.route){
-                ResultScreen(correctAnswer = 2, size = 5)
+                ResultScreen(
+                    correctAnswer = 2, size = 5,
+                    navigateToExam = {
+                        navController.navigate(Screen.Exam.route)
+                    },
+                    navigateToHome = {
+                        navController.popBackStack(Screen.Home.route, inclusive = false)
+                    },
+                    navigateToAnswer = {
+                        navController.navigate(Screen.Answer.route)
+                    }
+                )
+
             }
 
             composable(Screen.Answer.route){

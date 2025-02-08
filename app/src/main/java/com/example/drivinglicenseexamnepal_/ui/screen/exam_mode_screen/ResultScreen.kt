@@ -41,6 +41,9 @@ import com.example.drivinglicenseexamnepal_.ui.theme.LightBackgroundColor
 fun ResultScreen(
     correctAnswer: Int,
     size: Int,
+    navigateToExam: () -> Unit,
+    navigateToHome: () -> Unit,
+    navigateToAnswer: () -> Unit,
 ) {
 
     val state = rememberScrollState()
@@ -62,11 +65,11 @@ fun ResultScreen(
                     .fillMaxSize()
                     .verticalScroll(state)
             ) {
-                BoxResult(correctAnswer, size)
+                BoxResult(correctAnswer, size, navigateToExam)
 
                 Column(verticalArrangement = Arrangement.Bottom) {
                     Button(
-                        onClick = {  },
+                        onClick = navigateToAnswer,
                         modifier = Modifier
                             .fillMaxWidth()
                             .padding(horizontal = 16.dp)
@@ -85,7 +88,7 @@ fun ResultScreen(
                     }
 
                     Button(
-                        onClick = {},
+                        onClick = navigateToHome,
                         colors = ButtonDefaults.buttonColors(
                             containerColor = ButtonColor
                         ),
@@ -112,8 +115,9 @@ fun ResultScreen(
 @Composable
 fun BoxResult(
     correctAnswer: Int,
-    size: Int
-) {
+    size: Int,
+    navigateToExam: () -> Unit,
+    ) {
 
     Column(modifier = Modifier.padding(16.dp)) {
         Card(
@@ -140,7 +144,7 @@ fun BoxResult(
                 Spacer(modifier = Modifier.height(32.dp))
 
                 Button(
-                    onClick = {},
+                    onClick = navigateToExam,
                     colors = ButtonDefaults.buttonColors(
                         containerColor = ButtonColorLightBlue
                     ),
@@ -211,7 +215,7 @@ fun TextResult(
 @Composable
 private fun QuizResultScreenPreview() {
 
-    ResultScreen(correctAnswer = 1, size = 5)
+    ResultScreen(correctAnswer = 1, size = 5, {}, {}, {})
     //BoxResult()
     //TextResult(title = "title", value = "value")
 
