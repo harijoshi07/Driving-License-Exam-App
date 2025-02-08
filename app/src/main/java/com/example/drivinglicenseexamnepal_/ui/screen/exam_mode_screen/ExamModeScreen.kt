@@ -36,10 +36,10 @@ fun ExamModeScreen(
     questions: List<Question> = getBikeQuestionsA(),
     navigateToResult: (List<Question>, List<Int?>) -> Unit
 ) {
-    val randomQuestions = remember { questions.take(5) }
+    val randomQuestions = remember { questions.take(25) }
     var currentQuestionIndex by remember { mutableIntStateOf(0) }
     val selectedAnswers =
-        remember { mutableStateListOf<Int?>().apply { addAll(List(5) { null }) } }
+        remember { mutableStateListOf<Int?>().apply { addAll(List(25) { null }) } }
 
     Box(
         modifier = Modifier
