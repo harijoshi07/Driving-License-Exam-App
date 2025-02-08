@@ -6,6 +6,6 @@
     <style name="Theme.MySplashScreen" parent="Theme.SplashScreen.IconBackground">
         <item name="windowSplashScreenBackground">#FFEAF3FF</item>
         <item name="postSplashScreenTheme">@style/Theme.DrivingLicenseExamNepal_</item>
-        <item name="windowSplashScreenAnimatedIcon">@drawable/icon</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/ic_launcher_foreground</item>
     </style>
 </resources>
