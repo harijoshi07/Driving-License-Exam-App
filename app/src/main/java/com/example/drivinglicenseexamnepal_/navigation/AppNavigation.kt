@@ -10,6 +10,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
+import com.example.drivinglicenseexamnepal_.ui.component.TopBar
 import com.example.drivinglicenseexamnepal_.ui.screen.exam_mode_screen.AnswerScreen
 import com.example.drivinglicenseexamnepal_.ui.screen.exam_mode_screen.ExamModeScreen
 import com.example.drivinglicenseexamnepal_.ui.screen.exam_mode_screen.ResultScreen
@@ -27,7 +28,12 @@ fun AppNavigation() {
 
     Scaffold(
         modifier = Modifier.fillMaxSize(),
-        topBar = { },
+        topBar = {
+            TopBar(
+                navBackStackEntry = navBackStackEntry,
+                navigateBack = { navController.popBackStack() }
+            )
+        },
         containerColor = BlueBackgroundColor
         //containerColor = LightBackgroundColor
     ) { innerPadding ->
