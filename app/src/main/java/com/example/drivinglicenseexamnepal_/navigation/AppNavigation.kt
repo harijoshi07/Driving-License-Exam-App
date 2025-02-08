@@ -52,7 +52,7 @@ fun AppNavigation(viewModel: QuestionViewModel = viewModel()) {
                         //navController.navigate(route = Screen.Category.route)
                     },
                     navigateToQuiz = { vehicleType ->
-                        navController.navigate(route = "category/$vehicleType")
+                        navController.navigate(route = "quiz/$vehicleType")
                         //navController.navigate(route = Screen.Exam.route)
                     },
                     navigateToUltimateGuide = {
