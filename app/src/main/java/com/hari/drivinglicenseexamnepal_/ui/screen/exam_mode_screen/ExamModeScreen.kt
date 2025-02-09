@@ -55,6 +55,7 @@ fun ExamModeScreen(
             QuestionComponent(
                 questionNumber = currentQuestionIndex + 1,
                 questionText = randomQuestions[currentQuestionIndex].questionText,
+                questionImageId = randomQuestions[currentQuestionIndex].questionImageId,
                 options = listOf(
                     randomQuestions[currentQuestionIndex].optionA,
                     randomQuestions[currentQuestionIndex].optionB,

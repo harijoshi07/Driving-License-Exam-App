@@ -251,7 +251,7 @@ fun UltimateGuideCard(navigateToUltimateGuide: () -> Unit) {
 
 }
 
-@Preview(showBackground = true, heightDp = 800)
+@Preview(showBackground = true)
 @Composable
 private fun PreviewHomeScreen() {
     HomeScreen({}, {}, {})
