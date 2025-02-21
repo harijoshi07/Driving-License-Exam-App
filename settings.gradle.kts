@@ -19,6 +19,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "DrivingLicenseExamNepal_"
+rootProject.name = "Driving License Exam Nepal"
 include(":app")
  

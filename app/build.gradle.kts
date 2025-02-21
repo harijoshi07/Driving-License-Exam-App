@@ -12,8 +12,8 @@ android {
         applicationId = "com.hari.drivinglicenseexamnepal_"
         minSdk = 24
         targetSdk = 34
-        versionCode = 1
-        versionName = "1.0"
+        versionCode = 3
+        versionName = "1.0.2"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -25,6 +25,7 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+            ndk.debugSymbolLevel = "FULL"
         }
     }
     compileOptions {
@@ -37,6 +38,7 @@ android {
     buildFeatures {
         compose = true
     }
+    ndkVersion = "28.0.13004108"
 }
 
 dependencies {
