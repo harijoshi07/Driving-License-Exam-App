@@ -46,3 +46,7 @@ This project was built using the following technologies and tools:
 | Ultimate Guide Screen                      |
 |--------------------------------------------|
 | ![](screenshots/ultimate_guide_screen.jpg) |
+
+## Disclaimer
+
+The questions were used from dotm website: https://dotm.gov.np/Files/aa252bb0-c16b-416c-a953-a0a876be69e2_8586.pdf
