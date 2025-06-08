@@ -19,8 +19,6 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.KeyboardArrowDown
 import androidx.compose.material.icons.filled.KeyboardArrowUp
-import androidx.compose.material.icons.filled.Lightbulb
-import androidx.compose.material.icons.outlined.Lightbulb
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
@@ -34,11 +32,14 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.hari.drivinglicenseexamnepal_.R
 import com.hari.drivinglicenseexamnepal_.data.constants.phases
 import com.hari.drivinglicenseexamnepal_.ui.theme.ButtonColor
 import com.hari.drivinglicenseexamnepal_.ui.theme.LightBackgroundColor
@@ -58,7 +59,7 @@ fun UltimateGuideScreen() {
         ) {
             items(phases) { phase ->
                 ExpandableCard(
-                    icon = Icons.Outlined.Lightbulb,
+                    icon = painterResource(R.drawable.light_bulb),
                     // icon = Icons.Default.Lightbulb,
                     title = phase.title,
                     subtitle = phase.subtitle
@@ -95,7 +96,7 @@ fun PhaseStep(description: String, subPoints: List<String>? = null) {
 
 @Composable
 fun ExpandableCard(
-    icon: ImageVector,
+    icon: Painter,
     title: String,
     subtitle: String,
     content: @Composable () -> Unit
@@ -123,7 +124,7 @@ fun ExpandableCard(
             ) {
                 // Icon
                 Icon(
-                    imageVector = icon,
+                    painter = icon,
                     contentDescription = null,
                     modifier = Modifier.size(40.dp),
                     tint = ButtonColor
@@ -168,7 +169,8 @@ fun ExpandableCard(
 @Composable
 private fun CardPreview() {
     ExpandableCard(
-        icon = Icons.Default.Lightbulb,
+        //icon = Icons.Default.Lightbulb,
+        icon = painterResource(R.drawable.light_bulb),
         title = "Phase I",
         subtitle = "Form Filling"
     ) {

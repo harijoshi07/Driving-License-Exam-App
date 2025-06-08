@@ -138,7 +138,8 @@ fun AnswerComponent(
         Text(
             text = text,
             color = Color.Black,
-            fontSize = 18.sp
+            fontSize = 18.sp,
+            fontWeight = FontWeight.Normal
         )
     }
 }

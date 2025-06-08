@@ -27,7 +27,7 @@ fun DisclaimerDialog(
             Text(
                 text = "We're glad to have you. " +
                     "This app is designed to help you prepare for your driving license exam " +
-                    "with question set available in dotm website and is not affiliated" +
+                    "with question set available in dotm website and is not affiliated " +
                         "with any government entity. Best of luck! ",
                 textAlign = TextAlign.Justify
             )

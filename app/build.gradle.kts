@@ -12,8 +12,8 @@ android {
         applicationId = "com.hari.drivinglicenseexamnepal_"
         minSdk = 24
         targetSdk = 34
-        versionCode = 3
-        versionName = "1.0.2"
+        versionCode = 4
+        versionName = "1.0.4"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -59,7 +59,7 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
 
-    implementation("androidx.compose.material:material-icons-extended: 1.7.3")
+    //implementation("androidx.compose.material:material-icons-extended: 1.7.3")
     implementation ("androidx.navigation:navigation-compose:2.8.4")
 
     implementation("androidx.core:core-splashscreen:1.0.0")

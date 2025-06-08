@@ -3,8 +3,6 @@ package com.hari.drivinglicenseexamnepal_.ui.component
 import com.hari.drivinglicenseexamnepal_.data.constants.topBarTitle
 import com.hari.drivinglicenseexamnepal_.navigation.Screen
 import com.hari.drivinglicenseexamnepal_.ui.theme.BlueBackgroundColor
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowBackIosNew
 import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -16,9 +14,11 @@ import androidx.compose.material3.rememberTopAppBarState
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavBackStackEntry
+import com.hari.drivinglicenseexamnepal_.R
 
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -106,7 +106,7 @@ fun GeneralTopBar(
         navigationIcon = {
             IconButton(onClick = navigateBack) {
                 Icon(
-                    imageVector = Icons.Default.ArrowBackIosNew,
+                    painter = painterResource(id = R.drawable.arrow_back),
                     contentDescription = null,
                     tint = Color.White
                 )
